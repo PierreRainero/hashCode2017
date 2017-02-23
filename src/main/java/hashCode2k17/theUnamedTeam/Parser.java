@@ -15,11 +15,6 @@ public class Parser {
 
     private int nbVids;
     private int nbEndpoints;
-    private int nbRequestDescr;
-    private int nbCaches;
-    private int cacheSize;
-
- //   private HashMap<Integer, Integer> endpoints;
     private List<Endpoints> endpoints;
 
 
@@ -28,9 +23,9 @@ public class Parser {
 
         nbVids = Integer.parseInt(input.next());
         nbEndpoints = Integer.parseInt(input.next());
-        nbRequestDescr = Integer.parseInt(input.next());
-        nbCaches = Integer.parseInt(input.next());
-        cacheSize = Integer.parseInt(input.next());
+        Integer.parseInt(input.next());
+        Integer.parseInt(input.next());
+        Integer.parseInt(input.next());
 
         initVideosSizes();
     }
@@ -39,7 +34,7 @@ public class Parser {
     	DataCenter dataCenter = new DataCenter();
 
         for (int i = 0; i < nbVids; i++)
-        	dataCenter.addVideo(new Video(Integer.parseInt(input.next())));
+        	dataCenter.addVideo(new Video(i, Integer.parseInt(input.next())));
     }
 
     private void initEndpoints(){

@@ -18,4 +18,12 @@ public class VideoTest {
         assertEquals(500, v.getVideoSize());
     }
 
+    public void testAskedPoint(){
+        Endpoints endpoints = new Endpoints(1000);
+        v.addARequest(endpoints, 100);
+        Endpoints endpoints2 = new Endpoints(1500);
+        v.addARequest(endpoints2, 50);
+
+    }
+
 }

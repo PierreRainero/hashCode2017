@@ -1,7 +1,9 @@
 package hashCode2k17.theUnamedTeam.utils;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 import hashCode2k17.theUnamedTeam.context.CacheServer;
@@ -28,6 +30,7 @@ public class Parser {
 
         initVideosSizes();
         initEndpoints();
+        initRequests();
     }
 
     private void initVideosSizes() throws NumberFormatException, Exception{
@@ -52,11 +55,16 @@ public class Parser {
     }
 
     private void initLatencyToCache(Endpoints ep, int nbCache){
+    	Map<Integer, CacheServer> caches = new HashMap<Integer, CacheServer>();
+    	
         for (int i = 0; i < nbCache; i++){
             int cacheId = Integer.parseInt(input.next());
             int latency = Integer.parseInt(input.next());
-
-            ep.addACache(new CacheServer(cacheId, latency, context.getCacheSize()));
+            
+            if(!caches.containsKey(cacheId))
+            	caches.put(cacheId, new CacheServer(cacheId, context.getCacheSize()));
+            
+            ep.addACache(caches.get(cacheId), latency);
         }
     }
 

@@ -8,16 +8,6 @@ public class CacheServer extends Server {
     private int id;
     private int initialCapacity;
     private int actualCapacity;
-    private int latency;
-
-    public CacheServer(int id, int latency, int capacity) throws IllegalArgumentException{
-        super();
-        this.id = id;
-        if(capacity < 1 || capacity > 500000) throw new IllegalArgumentException();
-        this.initialCapacity = capacity;
-        this.actualCapacity = this.initialCapacity;
-        this.latency = latency;
-    }
 
     public CacheServer(int id, int capacity) throws IllegalArgumentException{
         super();
@@ -26,7 +16,6 @@ public class CacheServer extends Server {
         this.initialCapacity = capacity;
         this.actualCapacity = this.initialCapacity;
     }
-
     @Override
     public void addVideo(Video video) throws Exception {
         if(this.actualCapacity - video.getVideoSize() < 0)
@@ -47,10 +36,6 @@ public class CacheServer extends Server {
 
     public int getActualCapacity(){
         return this.actualCapacity;
-    }
-
-    public int getLatency() {
-        return this.latency;
     }
 
     public CacheServer clone(){

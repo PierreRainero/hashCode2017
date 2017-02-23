@@ -23,4 +23,16 @@ public class Endpoints {
 	public int getLatency(){
 		return latency;
 	}
+	
+	public List<CacheServer> getCaches(){
+		return caches;
+	}
+	
+	public Endpoints clone(){
+		Endpoints newEndpoints = new Endpoints(latency);
+		for(int i=0; i<caches.size(); i++){
+			newEndpoints.getCaches().add(caches.get(i).clone());
+		}
+		return newEndpoints;
+	}
 }

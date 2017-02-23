@@ -31,7 +31,7 @@ public class Parser {
     }
 
     private void initVideosSizes(){
-    	Server dataCenter = new Server();
+    	Server dataCenter = context.getDataCenter();
 
         for (int i = 0; i < context.getNbVids(); i++)
         	dataCenter.addVideo(new Video(i, Integer.parseInt(input.next())));

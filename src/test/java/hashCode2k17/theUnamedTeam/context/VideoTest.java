@@ -1,6 +1,6 @@
 package hashCode2k17.theUnamedTeam.context;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 public class VideoTest {
 

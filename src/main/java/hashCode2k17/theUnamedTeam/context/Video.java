@@ -12,7 +12,7 @@ public class Video {
         requests = new HashMap<Endpoints, Integer>();
     }
     
-    public void AddARequest(Endpoints endP, int nbOfRequest){
+    public void addARequest(Endpoints endP, int nbOfRequest){
     	requests.put(endP, nbOfRequest);
     }
     

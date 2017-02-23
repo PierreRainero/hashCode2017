@@ -7,7 +7,7 @@ public class Video {
     private int size;
     private Map<Endpoints, Integer> requests;
 
-    public Video(int size, Map<Endpoints, Integer> requests){
+    public Video(int size){
         this.size=size;
         requests = new HashMap<Endpoints, Integer>();
     }

@@ -19,7 +19,7 @@ public class Parser {
         this.context = context;
     }
     
-    public void parse(){
+    public void parse() throws Exception {
     	context.setNbVids(Integer.parseInt(input.next()));
     	context.setNbEndpoints(Integer.parseInt(input.next()));
         Integer.parseInt(input.next());
@@ -30,7 +30,7 @@ public class Parser {
         initEndpoints();
     }
 
-    private void initVideosSizes(){
+    private void initVideosSizes() throws Exception {
     	Server dataCenter = new Server();
 
         for (int i = 0; i < context.getNbVids(); i++)

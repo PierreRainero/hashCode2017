@@ -1,6 +1,5 @@
 package hashCode2k17.theUnamedTeam.context;
 
-import com.sun.javaws.exceptions.InvalidArgumentException;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -19,9 +18,14 @@ public class CacheServerTest {
     public ExpectedException thrown = ExpectedException.none();
 
     @Test
-    public void constructorWithInvalidCapacity(){
-        thrown.expect(InvalidArgumentException.class);
+    public void constructorWith0Capacity(){
+        thrown.expect(IllegalArgumentException.class);
         cacheServer = new CacheServer(0,0);
+    }
+
+    @Test
+    public void constructorWithToMuchCapacity(){
+        thrown.expect(IllegalArgumentException.class);
         cacheServer = new CacheServer(0,500001);
     }
 }

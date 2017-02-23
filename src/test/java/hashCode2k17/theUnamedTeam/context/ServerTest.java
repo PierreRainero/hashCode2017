@@ -3,6 +3,8 @@ package hashCode2k17.theUnamedTeam.context;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.assertTrue;
+
 public class ServerTest {
 
     private Server server;
@@ -14,11 +16,13 @@ public class ServerTest {
 
     @Test
     public void addVideo(){
-        //TODO : server.addVideo(new Video());
+        Video video = new Video(0,20);
+        server.addVideo(video);
+        assertTrue(server.getVideos().contains(video));
     }
 
     @Test
     public void removeVideo(){
-        //TODO
+
     }
 }

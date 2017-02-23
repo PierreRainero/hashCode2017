@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 import hashCode2k17.theUnamedTeam.context.CacheServer;
 import hashCode2k17.theUnamedTeam.context.Endpoints;
+import hashCode2k17.theUnamedTeam.context.Server;
 import hashCode2k17.theUnamedTeam.context.Video;
 
 public class Parser {
@@ -31,7 +32,7 @@ public class Parser {
     }
 
     private void initVideosSizes(){
-    	DataCenter dataCenter = new DataCenter();
+    	Server dataCenter = new Server();
 
         for (int i = 0; i < nbVids; i++)
         	dataCenter.addVideo(new Video(i, Integer.parseInt(input.next())));

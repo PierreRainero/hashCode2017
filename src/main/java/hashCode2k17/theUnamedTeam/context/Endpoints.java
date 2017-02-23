@@ -23,7 +23,7 @@ public class Endpoints {
 	public int getLatency(){
 		return latency;
 	}
-	
+
 	public List<CacheServer> getCaches(){
 		return caches;
 	}

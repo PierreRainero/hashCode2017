@@ -22,15 +22,15 @@ public class Parser {
     public void parse() throws Exception {
     	context.setNbVids(Integer.parseInt(input.next()));
     	context.setNbEndpoints(Integer.parseInt(input.next()));
-        Integer.parseInt(input.next());
-        Integer.parseInt(input.next());
-        Integer.parseInt(input.next());
+        context.setNbRequestDescr(Integer.parseInt(input.next()));
+        context.setNbCaches(Integer.parseInt(input.next()));
+        context.setCacheSize(Integer.parseInt(input.next()));
 
         initVideosSizes();
         initEndpoints();
     }
 
-    private void initVideosSizes(){
+    private void initVideosSizes() throws Exception {
     	Server dataCenter = context.getDataCenter();
 
         for (int i = 0; i < context.getNbVids(); i++)
@@ -56,7 +56,18 @@ public class Parser {
             int cacheId = Integer.parseInt(input.next());
             int latency = Integer.parseInt(input.next());
 
-            ep.addACache(new CacheServer(cacheId, latency));
+            ep.addACache(new CacheServer(cacheId, latency, context.getCacheSize()));
+        }
+    }
+
+
+    private void initRequests(){
+        while(input.hasNext()){
+            int video = Integer.parseInt(input.next());
+            int endpoint = Integer.parseInt(input.next());
+            int request = Integer.parseInt(input.next());
+
+
         }
     }
 }

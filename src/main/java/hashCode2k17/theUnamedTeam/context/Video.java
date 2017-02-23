@@ -21,4 +21,16 @@ public class Video {
     public int getVideoSize(){
     	return size;
     }
+
+    public Endpoints getMostAskedEndPoints(){
+        int value = 0;
+        Endpoints end = null;
+        for(Map.Entry<Endpoints, Integer> entry : requests.entrySet()) {
+            if(entry.getValue()>value){
+                value=entry.getValue();
+                end=entry.getKey();
+            }
+        }
+        return end;
+    }
 }

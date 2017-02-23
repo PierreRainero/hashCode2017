@@ -14,10 +14,6 @@ public class Server {
         this.videos.add(video);
     }
 
-    public void removeVideo(Video video){
-        this.videos.remove(video);
-    }
-
     public List getVideos(){
         return this.videos;
     }

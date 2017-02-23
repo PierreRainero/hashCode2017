@@ -37,4 +37,17 @@ public class Video {
         }
         return end;
     }
+
+    public int getRequestFoEndpoint(Endpoints ep){
+        return requests.get(ep);
+    }
+
+    public Map<Endpoints, Integer> getRequests() {
+        return requests;
+    }
+
+    public void setRequests(Map<Endpoints, Integer> requests) {
+        this.requests = requests;
+    }
+
 }

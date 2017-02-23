@@ -21,7 +21,7 @@ public class EndpointsTest {
 	@Test
 	public void addCache(){
 		CacheServer cache = new CacheServer(0, 2000);
-		endpoint.addACache(cache);
+		endpoint.addACache(cache, 50);
 		assertEquals(1, endpoint.getNumberOfCache());
 	}
 

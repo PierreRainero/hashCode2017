@@ -12,7 +12,7 @@ public class CacheServerTest {
 
     @Before
     public void defineContext(){
-        cacheServer = new CacheServer(200);
+        cacheServer = new CacheServer(0,200);
     }
 
     @Rule
@@ -21,17 +21,7 @@ public class CacheServerTest {
     @Test
     public void constructorWithInvalidCapacity(){
         thrown.expect(InvalidArgumentException.class);
-        cacheServer = new CacheServer(0);
-        cacheServer = new CacheServer(500001);
-    }
-
-    @Test
-    public void addVideo(){
-        //TODO : cacheServer.addVideo(new Video());
-    }
-
-    @Test
-    public void removeVideo(){
-        //TODO
+        cacheServer = new CacheServer(0,0);
+        cacheServer = new CacheServer(0,500001);
     }
 }

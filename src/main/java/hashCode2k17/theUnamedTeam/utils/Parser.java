@@ -55,7 +55,7 @@ public class Parser {
     }
 
     private void initLatencyToCache(Endpoints ep, int nbCache){
-    	Map<Integer, CacheServer> caches = new HashMap<Integer, CacheServer>();
+    	Map<Integer, CacheServer> caches = context.getCaches();
     	
         for (int i = 0; i < nbCache; i++){
             int cacheId = Integer.parseInt(input.next());

@@ -1,7 +1,9 @@
 package hashCode2k17.theUnamedTeam.context;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Context {
     private int nbRequestDescr;
@@ -11,10 +13,12 @@ public class Context {
     private int nbEndpoints;
     private Server dataCenter;
     private List<Endpoints> endpoints;
+    private Map<Integer, CacheServer> caches;
     
     public Context(){
     	endpoints = new ArrayList<Endpoints>();
     	dataCenter = new Server();
+    	caches = new HashMap<Integer, CacheServer>();
     }
     
     public void setNbVids(int nbVids){
@@ -80,6 +84,10 @@ public class Context {
 
     public void setCacheSize(int cacheSize) {
         this.cacheSize = cacheSize;
+    }
+    
+    public Map<Integer, CacheServer> getCaches(){
+    	return caches;
     }
 
 }

@@ -23,14 +23,11 @@ private Context ctxt;
         assertEquals(2, ctxt.getNbEndpoints());
         assertEquals(1000, ctxt.getEndpoints().get(0).getLatency());
         assertEquals(500, ctxt.getEndpoints().get(1).getLatency());
-        assertEquals(100, ctxt.getEndpoints().get(0).getCaches().get(0).getLatency());
     }
 
     @Test
-    public void checkEdpt1(){
-        assertEquals(2, ctxt.getNbEndpoints());
-        assertEquals(1000, ctxt.getEndpoints().get(0).getLatency());
-        assertEquals(500, ctxt.getEndpoints().get(1).getLatency());
-        assertEquals(100, ctxt.getEndpoints().get(0).getCaches().get(0).getLatency());
+    public void video(){
+        assertEquals(1500, ctxt.getDataCenter().getVideos().get(3).getRequestFoEndpoint(ctxt.getEndpoints().get(0)));
+        assertEquals(1000, ctxt.getDataCenter().getVideos().get(0).getRequestFoEndpoint(ctxt.getEndpoints().get(1)));
     }
 }

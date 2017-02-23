@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Context {
+    private int nbRequestDescr;
+    private int nbCaches;
+    private int cacheSize;
     private int nbVids;
     private int nbEndpoints;
     private Server dataCenter;
@@ -33,7 +36,7 @@ public class Context {
     public List<Endpoints> getEndpoints(){
     	return endpoints;
     }
-    
+
     public Server getDataCenter(){
     	return dataCenter;
     }
@@ -54,4 +57,29 @@ public class Context {
     	
     	return newCtx;
     }
+
+    public int getNbRequestDescr() {
+        return nbRequestDescr;
+    }
+
+    public void setNbRequestDescr(int nbRequestDescr) {
+        this.nbRequestDescr = nbRequestDescr;
+    }
+
+    public int getNbCaches() {
+        return nbCaches;
+    }
+
+    public void setNbCaches(int nbCaches) {
+        this.nbCaches = nbCaches;
+    }
+
+    public int getCacheSize() {
+        return cacheSize;
+    }
+
+    public void setCacheSize(int cacheSize) {
+        this.cacheSize = cacheSize;
+    }
+
 }

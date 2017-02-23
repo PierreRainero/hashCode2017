@@ -22,9 +22,9 @@ public class Parser {
     public void parse() throws Exception {
     	context.setNbVids(Integer.parseInt(input.next()));
     	context.setNbEndpoints(Integer.parseInt(input.next()));
-        Integer.parseInt(input.next());
-        Integer.parseInt(input.next());
-        Integer.parseInt(input.next());
+        context.setNbRequestDescr(Integer.parseInt(input.next()));
+        context.setNbCaches(Integer.parseInt(input.next()));
+        context.setCacheSize(Integer.parseInt(input.next()));
 
         initVideosSizes();
         initEndpoints();
@@ -56,7 +56,22 @@ public class Parser {
             int cacheId = Integer.parseInt(input.next());
             int latency = Integer.parseInt(input.next());
 
-            ep.addACache(new CacheServer(cacheId, latency));
+            ep.addACache(new CacheServer(cacheId, latency, context.getCacheSize()));
         }
     }
+
+
+    private void initRequests(){
+        for (int i = 0; i < context.getNbRequestDescr(); i ++){
+            int video = Integer.parseInt(input.next());
+            int endpoint = Integer.parseInt(input.next());
+            int request = Integer.parseInt(input.next());
+
+
+            //TODO:fix this
+            //context.getDataCenter().getVideos().get(video).addARequest(context.getEndpoints().get(endpoint), request);
+
+        }
+    }
+
 }

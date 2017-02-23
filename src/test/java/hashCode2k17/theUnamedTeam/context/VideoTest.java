@@ -20,4 +20,5 @@ public class VideoTest {
     public void testCreate(){
         assertEquals(500, v.getVideoSize());
     }
+
 }

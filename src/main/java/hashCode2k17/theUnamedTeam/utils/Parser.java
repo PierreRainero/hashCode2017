@@ -67,10 +67,7 @@ public class Parser {
             int endpoint = Integer.parseInt(input.next());
             int request = Integer.parseInt(input.next());
 
-
-            //TODO:fix this
-            //context.getDataCenter().getVideos().get(video).addARequest(context.getEndpoints().get(endpoint), request);
-
+            context.getDataCenter().getVideos().get(video).addARequest(context.getEndpoints().get(endpoint), request);
         }
     }
 

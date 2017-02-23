@@ -16,7 +16,7 @@ public class Server {
         this.videos.add(video);
     }
 
-    public List getVideos(){
+    public List<Video> getVideos(){
         return this.videos;
     }
 }

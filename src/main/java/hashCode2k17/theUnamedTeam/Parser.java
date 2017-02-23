@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import hashCode2k17.theUnamedTeam.context.Video;
+
 public class Parser {
     private Scanner input;
 
@@ -13,8 +15,6 @@ public class Parser {
     private int nbRequestDescr;
     private int nbCaches;
     private int cacheSize;
-
-    private List<Integer> videosSizes;
 
 
     public Parser(File file) throws Exception {
@@ -30,10 +30,9 @@ public class Parser {
     }
 
     private void initVideosSizes(){
-        videosSizes = new ArrayList<Integer>();
+    	DataCenter dataCenter = new DataCenter();
 
-        for (int i = 0; i < nbVids; i++){
-            videosSizes.add(i, Integer.parseInt(input.next()));
-        }
+        for (int i = 0; i < nbVids; i++)
+        	dataCenter.addVideo(new Video(Integer.parseInt(input.next())));
     }
 }

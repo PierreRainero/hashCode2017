@@ -19,7 +19,7 @@ public class Parser {
         this.context = context;
     }
     
-    public void parse(){
+    public void parse() throws Exception {
     	context.setNbVids(Integer.parseInt(input.next()));
     	context.setNbEndpoints(Integer.parseInt(input.next()));
         Integer.parseInt(input.next());

@@ -10,7 +10,7 @@ public class VideoTest {
 
     @Before
     public void init(){
-        v = new Video(500, 0);
+        v = new Video(0, 500);
     }
 
     @Test

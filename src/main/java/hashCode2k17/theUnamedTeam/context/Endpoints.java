@@ -19,4 +19,8 @@ public class Endpoints {
 	public int getNumberOfCache(){
 		return caches.size();
 	}
+	
+	public int getLatency(){
+		return latency;
+	}
 }

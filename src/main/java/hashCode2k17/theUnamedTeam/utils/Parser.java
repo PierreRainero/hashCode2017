@@ -30,7 +30,7 @@ public class Parser {
         initEndpoints();
     }
 
-    private void initVideosSizes() throws Exception {
+    private void initVideosSizes() throws NumberFormatException, Exception{
     	Server dataCenter = context.getDataCenter();
 
         for (int i = 0; i < context.getNbVids(); i++)
@@ -62,12 +62,16 @@ public class Parser {
 
 
     private void initRequests(){
-        while(input.hasNext()){
+        for (int i = 0; i < context.getNbRequestDescr(); i ++){
             int video = Integer.parseInt(input.next());
             int endpoint = Integer.parseInt(input.next());
             int request = Integer.parseInt(input.next());
 
 
+            //TODO:fix this
+            //context.getDataCenter().getVideos().get(video).addARequest(context.getEndpoints().get(endpoint), request);
+
         }
     }
+
 }

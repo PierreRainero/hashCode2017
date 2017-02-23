@@ -16,14 +16,6 @@ public class Server {
         this.videos.add(video);
     }
 
-    public boolean removeVideo(Video video){
-        if(this.videos.contains(video)) {
-            this.videos.remove(video);
-            return true;
-        } else
-            return false;
-    }
-
     public List getVideos(){
         return this.videos;
     }

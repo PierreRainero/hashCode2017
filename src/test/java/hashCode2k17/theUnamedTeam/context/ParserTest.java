@@ -25,9 +25,9 @@ private Context ctxt;
         assertEquals(500, ctxt.getEndpoints().get(1).getLatency());
         assertEquals(100, ctxt.getEndpoints().get(0).getCaches().get(0).getLatency());
     }
-    s
+
     @Test
-    public void checkEdpt(){
+    public void checkEdpt1(){
         assertEquals(2, ctxt.getNbEndpoints());
         assertEquals(1000, ctxt.getEndpoints().get(0).getLatency());
         assertEquals(500, ctxt.getEndpoints().get(1).getLatency());

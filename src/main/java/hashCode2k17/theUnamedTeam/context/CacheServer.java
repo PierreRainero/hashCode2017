@@ -1,5 +1,7 @@
 package hashCode2k17.theUnamedTeam.context;
 
+import com.sun.glass.ui.View.Capability;
+
 import hashCode2k17.theUnamedTeam.exception.CacheServerCapacityException;
 
 public class CacheServer extends Server {
@@ -33,14 +35,7 @@ public class CacheServer extends Server {
         this.actualCapacity -= video.getVideoSize();
     }
 
-    @Override
-    public boolean removeVideo(Video video){
-        if(super.removeVideo(video)) {
-            this.actualCapacity += video.getVideoSize();
-            return true;
-        } else
-            return false;
-    }
+
 
     public int getId(){
         return this.id;
@@ -54,7 +49,12 @@ public class CacheServer extends Server {
         return this.actualCapacity;
     }
 
-    public int getLatency(){
+    public int getLatency() {
         return this.latency;
+    }
+
+    public CacheServer clone(){
+    	CacheServer newCache = new CacheServer(id, initialCapacity);
+    	return newCache;
     }
 }

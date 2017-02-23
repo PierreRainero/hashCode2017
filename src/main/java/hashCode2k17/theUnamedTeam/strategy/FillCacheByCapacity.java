@@ -6,6 +6,7 @@ import hashCode2k17.theUnamedTeam.context.Endpoints;
 import hashCode2k17.theUnamedTeam.context.Video;
 
 import java.util.List;
+import java.util.Map;
 
 public class FillCacheByCapacity {
     private Context context;
@@ -23,11 +24,14 @@ public class FillCacheByCapacity {
     }
 
     private CacheServer findBestCache(Endpoints endpoints, Video video){
-        CacheServer bestCache = (endpoints.getCaches().size() > 0)? endpoints.getCaches().get(0) : null;
+        CacheServer bestCache = null;
+        int bestLatency = -1;
 
-        for(int i = 0; i < endpoints.getCaches().size(); i++){
-            if(endpoints.getCaches().get(i).getLatency() < bestCache.getLatency())
-                bestCache = endpoints.getCaches().get(i);
+        for(Map.Entry<CacheServer, Integer> entry : endpoints.getCaches().entrySet()){
+            if(bestCache == null || entry.getValue() < bestLatency) {
+                bestCache = entry.getKey();
+                bestLatency = entry.getValue();
+            }
         }
 
         return bestCache;

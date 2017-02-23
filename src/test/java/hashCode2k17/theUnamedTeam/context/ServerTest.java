@@ -20,9 +20,4 @@ public class ServerTest {
         server.addVideo(video);
         assertTrue(server.getVideos().contains(video));
     }
-
-    @Test
-    public void removeVideo(){
-
-    }
 }

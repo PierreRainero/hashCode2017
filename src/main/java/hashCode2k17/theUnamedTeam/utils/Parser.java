@@ -30,7 +30,7 @@ public class Parser {
         initEndpoints();
     }
 
-    private void initVideosSizes(){
+    private void initVideosSizes() throws NumberFormatException, Exception{
     	Server dataCenter = context.getDataCenter();
 
         for (int i = 0; i < context.getNbVids(); i++)

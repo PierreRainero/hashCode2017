@@ -1,5 +1,7 @@
 package hashCode2k17.theUnamedTeam.context;
 
+import com.sun.glass.ui.View.Capability;
+
 import hashCode2k17.theUnamedTeam.exception.CacheServerCapacityException;
 
 public class CacheServer extends Server {
@@ -42,5 +44,10 @@ public class CacheServer extends Server {
 
     public int getActualCapacity(){
         return this.actualCapacity;
+    }
+    
+    public CacheServer clone(){
+    	CacheServer newCache = new CacheServer(id, initialCapacity);
+    	return newCache;
     }
 }

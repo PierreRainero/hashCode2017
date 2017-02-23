@@ -2,6 +2,7 @@ package hashCode2k17.theUnamedTeam;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
@@ -15,6 +16,8 @@ public class Parser {
     private int nbRequestDescr;
     private int nbCaches;
     private int cacheSize;
+
+    private HashMap<Integer, Integer> endpoints;
 
 
     public Parser(File file) throws Exception {
@@ -34,5 +37,23 @@ public class Parser {
 
         for (int i = 0; i < nbVids; i++)
         	dataCenter.addVideo(new Video(Integer.parseInt(input.next())));
+    }
+
+    private void initEndpoints(){
+        endpoints = new HashMap<Integer, Integer>();
+
+        for (int i = 0; i < nbEndpoints; i++) {
+            int datacenterLatency = Integer.parseInt(input.next());
+            int nbCacheConnected = Integer.parseInt(input.next());
+
+            endpoints.put(datacenterLatency, nbCacheConnected);
+
+        }
+    }
+
+    private void initLatencyToCache(int endpoint, int nbCache){
+        for (int i = 0; i < nbCache; i++){
+
+        }
     }
 }

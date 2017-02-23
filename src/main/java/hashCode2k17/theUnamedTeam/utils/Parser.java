@@ -1,4 +1,4 @@
-package hashCode2k17.theUnamedTeam;
+package hashCode2k17.theUnamedTeam.utils;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -28,10 +28,11 @@ public class Parser {
         Integer.parseInt(input.next());
 
         initVideosSizes();
+        initEndpoints();
     }
 
     private void initVideosSizes(){
-    	DataCenter dataCenter = new DataCenter();
+    	Server dataCenter = new Server();
 
         for (int i = 0; i < nbVids; i++)
         	dataCenter.addVideo(new Video(i, Integer.parseInt(input.next())));

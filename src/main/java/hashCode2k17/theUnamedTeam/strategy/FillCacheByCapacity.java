@@ -36,5 +36,12 @@ public class FillCacheByCapacity {
 
     private String returnedString(){
         StringBuilder sb = new StringBuilder();
+        List<CacheServer> cs = context.getCache();
+        for(int i = 0 ; i<context.getNbCaches();i++){
+            sb.append(context.getCache().getId() + " ");
+            for(int j = 0;j<context.getCache().getVideosNumber()){
+                sb.append(context.getCache().getId() + " ");
+            }
+        }
     }
 }

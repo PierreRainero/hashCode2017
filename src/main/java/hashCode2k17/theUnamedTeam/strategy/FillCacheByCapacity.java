@@ -16,10 +16,11 @@ public class FillCacheByCapacity {
     }
 
     public void schedule(){
-        int videoNumber=0;
         List<Video> videos = context.getDataCenter().getVideos();
+        Endpoints endpoint = null;
         for(int i=1;i<videos.size();i++){
-
+            endpoint = videos.get(i).getMostAskedEndPoints();
+            findBestCache(endpoint, videos.get(i));
         }
     }
 
@@ -35,5 +36,9 @@ public class FillCacheByCapacity {
         }
 
         return bestCache;
+    }
+
+    private String returnedString(){
+        StringBuilder sb = new StringBuilder();
     }
 }

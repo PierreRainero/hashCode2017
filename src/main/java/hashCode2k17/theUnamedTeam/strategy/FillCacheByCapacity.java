@@ -15,13 +15,14 @@ public class FillCacheByCapacity {
         this.context=context.clone();
     }
 
-    public void schedule(){
+    public String schedule(){
         List<Video> videos = context.getDataCenter().getVideos();
         Endpoints endpoint = null;
         for(int i=1;i<videos.size();i++){
             endpoint = videos.get(i).getMostAskedEndPoints();
             findBestCache(endpoint, videos.get(i));
         }
+        return returnedString();
     }
 
     private CacheServer findBestCache(Endpoints endpoints, Video video){
@@ -40,12 +41,21 @@ public class FillCacheByCapacity {
 
     private String returnedString(){
         StringBuilder sb = new StringBuilder();
-        List<CacheServer> cs = context.getCaches();
+        Map<Integer, CacheServer> cs = context.getCaches();
+        int usedCaches = 0;
         for(int i = 0 ; i<context.getNbCaches();i++){
-            sb.append(cs.getId() + " ");
-            for(int j = 0;j<cs.getVideosNumber()){
-                sb.append(cs.getId() + " ");
+            if(cs.get(i).getVideos().size()!=0){
+                usedCaches++;
+                sb.append(i + " ");
+                for(int j = 0;j<cs.get(i).getVideos().size();j++){
+                    sb.append(j + " ");
+                }
+                sb.append("\n");
             }
         }
+        String returnedString = "";
+        returnedString+=usedCaches+"\n";
+        returnedString+=sb;
+        return returnedString;
     }
 }

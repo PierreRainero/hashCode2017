@@ -15,7 +15,7 @@ public class ServerTest {
     }
 
     @Test
-    public void addVideo(){
+    public void addVideo() throws Exception {
         Video video = new Video(0,20);
         server.addVideo(video);
         assertTrue(server.getVideos().contains(video));

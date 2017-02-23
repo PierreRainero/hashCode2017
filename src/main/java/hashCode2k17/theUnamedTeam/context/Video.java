@@ -18,6 +18,10 @@ public class Video {
     	requests.put(endP, nbOfRequest);
     }
     
+    public int getId(){
+    	return id;
+    }
+    
     public int getVideoSize(){
     	return size;
     }

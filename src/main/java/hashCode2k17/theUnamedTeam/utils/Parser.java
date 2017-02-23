@@ -1,47 +1,46 @@
-package hashCode2k17.theUnamedTeam;
+package hashCode2k17.theUnamedTeam.utils;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
 import hashCode2k17.theUnamedTeam.context.CacheServer;
+import hashCode2k17.theUnamedTeam.context.Context;
 import hashCode2k17.theUnamedTeam.context.Endpoints;
 import hashCode2k17.theUnamedTeam.context.Server;
 import hashCode2k17.theUnamedTeam.context.Video;
 
 public class Parser {
     private Scanner input;
+    private Context context;
 
-    private int nbVids;
-    private int nbEndpoints;
-    private List<Endpoints> endpoints;
-
-
-    public Parser(File file) throws Exception {
+    public Parser(File file, Context context) throws Exception {
         input = new Scanner(file);
-
-        nbVids = Integer.parseInt(input.next());
-        nbEndpoints = Integer.parseInt(input.next());
+        this.context = context;
+    }
+    
+    public void parse() throws Exception {
+    	context.setNbVids(Integer.parseInt(input.next()));
+    	context.setNbEndpoints(Integer.parseInt(input.next()));
         Integer.parseInt(input.next());
         Integer.parseInt(input.next());
         Integer.parseInt(input.next());
 
         initVideosSizes();
+        initEndpoints();
     }
 
-    private void initVideosSizes(){
-    	Server dataCenter = new Server();
+    private void initVideosSizes() throws NumberFormatException, Exception{
+    	Server dataCenter = context.getDataCenter();
 
-        for (int i = 0; i < nbVids; i++)
+        for (int i = 0; i < context.getNbVids(); i++)
         	dataCenter.addVideo(new Video(i, Integer.parseInt(input.next())));
     }
 
     private void initEndpoints(){
-        endpoints = new ArrayList<Endpoints>();
+    	List<Endpoints> endpoints = context.getEndpoints();
 
-        for (int i = 0; i < nbEndpoints; i++) {
+        for (int i = 0; i < context.getNbEndpoints(); i++) {
             int datacenterLatency = Integer.parseInt(input.next());
             int nbCacheConnected = Integer.parseInt(input.next());
 

@@ -12,15 +12,19 @@ public class FillCacheByCapacity {
     private Context context;
 
     public FillCacheByCapacity(Context context){
-        this.context=context.clone();
+        this.context=context;
     }
 
-    public String schedule(){
+    public String schedule() throws Exception {
         List<Video> videos = context.getDataCenter().getVideos();
         Endpoints endpoint = null;
         for(int i=1;i<videos.size();i++){
             endpoint = videos.get(i).getMostAskedEndPoints();
-            findBestCache(endpoint, videos.get(i));
+            if(endpoint!=null) {
+                CacheServer bestCache = findBestCache(endpoint, videos.get(i));
+                if(bestCache != null)
+                    bestCache.addVideo(videos.get(i));
+            }
         }
         return returnedString();
     }
@@ -30,7 +34,7 @@ public class FillCacheByCapacity {
         int bestLatency = -1;
 
         for(Map.Entry<CacheServer, Integer> entry : endpoints.getCaches().entrySet()){
-            if(bestCache == null || entry.getValue() < bestLatency) {
+            if((bestCache == null || entry.getValue() < bestLatency) && entry.getKey().getActualCapacity() - video.getVideoSize() >= 0) {
                 bestCache = entry.getKey();
                 bestLatency = entry.getValue();
             }
@@ -48,7 +52,7 @@ public class FillCacheByCapacity {
                 usedCaches++;
                 sb.append(i + " ");
                 for(int j = 0;j<cs.get(i).getVideos().size();j++){
-                    sb.append(j + " ");
+                    sb.append(cs.get(i).getVideos().get(j).getId() + " ");
                 }
                 sb.append("\n");
             }

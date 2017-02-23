@@ -54,6 +54,8 @@ public class Context {
     	newCtx.setNbVids(nbVids);
     	newCtx.setNbEndpoints(nbEndpoints);
     	newCtx.setDataCenter(dataCenter);
+    	newCtx.setNbCaches(nbCaches);
+    	newCtx.setNbRequestDescr(nbRequestDescr);
     	
     	for(int i=0; i<nbEndpoints; i++){
     		newCtx.getEndpoints().add(endpoints.get(i).clone());

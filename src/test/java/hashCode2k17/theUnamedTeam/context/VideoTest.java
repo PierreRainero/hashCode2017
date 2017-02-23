@@ -3,9 +3,6 @@ package hashCode2k17.theUnamedTeam.context;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import static org.junit.Assert.assertEquals;
 
 public class VideoTest {
@@ -13,7 +10,7 @@ public class VideoTest {
 
     @Before
     public void init(){
-        v = new Video(500);
+        v = new Video(500, 0);
     }
 
     @Test
